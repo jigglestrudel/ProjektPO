@@ -61,10 +61,11 @@ void World::clearCorpses()
 
 void World::manageOrganisms()
 {
-	std::sort(organisms.begin(), organisms.end(), 
+	std::sort(organisms.begin(), organisms.end(),
 		[](Organism* left, Organism* right)
 		{
-			if (left->getInnitiative() == right->getInnitiative())
-		})
+			if (left->getInnitiative() == right->getInnitiative()) return left->getAge() > right->getAge();
+		return left->getInnitiative() > right->getInnitiative();
+		});
 
 }
