@@ -2,10 +2,43 @@
 //
 
 #include <iostream>
+#include "World.h"
+#include "Organism.h"
+#include "Animal.h"
+#include "Wolf.h"
+#include "Sheep.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	World* earth = new World;
+	earth->setHeight(10);
+	earth->setWidht(10);
+	Wolf* wilk1 = new Wolf({ 0, 0 });
+	//Wolf* wilk2 = new Wolf({ 1, 0 });
+	//Wolf* wilk3 = new Wolf({ 0, 1 });
+	Sheep* owca1 = new Sheep({ 0, 2 });
+	Sheep* owca2 = new Sheep({ 1, 2 });
+	Sheep* owca3 = new Sheep({ 2, 2 });
+	Sheep* owca4 = new Sheep({ 3, 2 });
+	Sheep* owca5 = new Sheep({ 4, 2 });
+
+	earth->addOrganism(wilk1);
+	//earth->addOrganism(wilk2);
+	//earth->addOrganism(wilk3);
+	earth->addOrganism(owca1);
+	earth->addOrganism(owca2);
+	earth->addOrganism(owca3);
+	earth->addOrganism(owca4);
+	earth->addOrganism(owca5);
+
+	while (true)
+	{
+		earth->nextRound();
+		std::cin.get();
+	}
+	
+	//earth->printState();
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -2,6 +2,8 @@
 
 Organism::Organism()
 {
+	id = classID(0);
+
 	strength = 0;
 	innitiative = 0;
 	
@@ -12,8 +14,9 @@ Organism::Organism()
 	worldReference = nullptr;
 }
 
-Organism::Organism(int s, int i, Vector2D pos, World* wr)
+Organism::Organism(classID cl, int s, int i, Vector2D pos, World* wr)
 {
+	id = cl;
 	strength = s;
 	innitiative = i;
 	
@@ -24,9 +27,26 @@ Organism::Organism(int s, int i, Vector2D pos, World* wr)
 	worldReference = wr;
 }
 
+void Organism::bringToLife()
+{
+
+	age = 0;
+	alive = true;
+}
+
 Organism::~Organism()
 {
 	std::cout << "organism " << this << " deleted\n";
+}
+
+classID Organism::getID()
+{
+	return id;
+}
+
+void Organism::setID(classID id)
+{
+	this->id = id;
 }
 
 int Organism::getStrength()
@@ -76,7 +96,10 @@ Vector2D Organism::getPosition()
 
 void Organism::setPosition(Vector2D position)
 {
+	//std::cout << this << " " <<  this->position;
 	this->position = position;
+	//std::cout << this->position << "\n";
+
 }
 
 World* Organism::getWorld()
@@ -87,4 +110,15 @@ World* Organism::getWorld()
 void Organism::setWorld(World* worldReference)
 {
 	this->worldReference = worldReference;
+}
+
+bool Vector2D::operator==(Vector2D right)
+{
+	return this->x == right.x && this->y == right.y;
+}
+
+std::ostream& operator<<(std::ostream& os, Vector2D vector)
+{
+	os << "(" << vector.x << ", " << vector.y << ")";
+	return os;
 }

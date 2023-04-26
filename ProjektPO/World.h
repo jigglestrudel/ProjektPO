@@ -8,11 +8,14 @@
 using std::vector;
 using std::string;
 
+struct Vector2D;
+class Organism;
 
 class World {
 private:
-	unsigned int height, width, roundCount;
-	vector<Organism&> organisms;
+	int height, width, roundCount;
+	vector<Organism*> organisms;
+	vector<Organism*> toAdd;
 	vector<string> history;
 
 public:
@@ -20,15 +23,23 @@ public:
 	~World();
 
 	int getHeight();
-	void setHeight(unsigned int h);
+	void setHeight(int h);
 	
 	int getWidth();
-	void setWidht(unsigned int w);
+	void setWidht(int w);
 
 	void nextRound();
 
-	void addOrganism(Organism& organism);
+	void addOrganism(Organism* organism);
+	void addOrganismsToAdd();
 	void clearCorpses();
 
 	void manageOrganisms();
+	Organism* findOrganismAtPosition(Vector2D position);
+	Organism* findFutureOrganismAtPosition(Vector2D position);
+	Vector2D findEmptyPlaceAround(Vector2D position);
+
+
+	void printState();
+
 };

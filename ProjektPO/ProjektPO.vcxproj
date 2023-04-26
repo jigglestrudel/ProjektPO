@@ -127,11 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animal.cpp" />
+    <ClCompile Include="Fox.cpp" />
     <ClCompile Include="Organism.cpp" />
     <ClCompile Include="ProjektPO.cpp" />
+    <ClCompile Include="Sheep.cpp" />
+    <ClCompile Include="Wolf.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animal.h" />
+    <ClInclude Include="Fox.h" />
+    <ClInclude Include="Sheep.h" />
+    <ClInclude Include="Wolf.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="Organism.h" />
   </ItemGroup>
