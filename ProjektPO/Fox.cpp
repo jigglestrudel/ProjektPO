@@ -2,20 +2,32 @@
 
 Fox::Fox(Vector2D position)
 {
-	setID(FOX);
+	setID(Types::FOX);
 	setStrength(3);
 	setInnitiative(7);
 	setPosition(position);
 	makeBreedable();
 }
 
-void Fox::giveBirth(Vector2D position)
+Fox* Fox::giveBirth(Vector2D position)
 {
 	Fox* pup = new Fox(position);
 
 	pup->bringToLife();
 
-	this->getWorld()->addOrganism(pup);
-
-	std::cout << pup << " NEW BABY FOX\n";
+	return pup;
 }
+
+bool Fox::checkIfDestinationLegal(Vector2D possibleDestination)
+{
+	bool goodSmell = getWorld()->findOrganismAtPosition(possibleDestination) != nullptr &&
+		getWorld()->findOrganismAtPosition(possibleDestination)->getStrength() > getStrength();
+
+	if (goodSmell)
+	{
+		this->getWorld()->addEvent(this->toString() + " has smelled danger at " + possibleDestination.toString());
+	}
+
+	return Animal::checkIfDestinationLegal(possibleDestination) && !(goodSmell);
+}
+

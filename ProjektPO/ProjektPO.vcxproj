@@ -128,17 +128,39 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animal.cpp" />
+    <ClCompile Include="Antilope.cpp" />
+    <ClCompile Include="Dandelion.cpp" />
     <ClCompile Include="Fox.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Grass.cpp" />
+    <ClCompile Include="Guarana.cpp" />
+    <ClCompile Include="Hogweed.cpp" />
+    <ClCompile Include="Human.cpp" />
+    <ClCompile Include="Nightshade.cpp" />
     <ClCompile Include="Organism.cpp" />
+    <ClCompile Include="Plant.cpp" />
     <ClCompile Include="ProjektPO.cpp" />
     <ClCompile Include="Sheep.cpp" />
+    <ClCompile Include="Tortoise.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Wolf.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
+    <ClInclude Include="Antilope.h" />
+    <ClInclude Include="Dandelion.h" />
     <ClInclude Include="Fox.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Grass.h" />
+    <ClInclude Include="Guarana.h" />
+    <ClInclude Include="Hogweed.h" />
+    <ClInclude Include="Human.h" />
+    <ClInclude Include="Nightshade.h" />
+    <ClInclude Include="Plant.h" />
     <ClInclude Include="Sheep.h" />
+    <ClInclude Include="Tortoise.h" />
+    <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Wolf.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="Organism.h" />

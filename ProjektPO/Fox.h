@@ -6,6 +6,6 @@ class Fox : public Animal
 {
 public:
 	Fox(Vector2D position);
-	virtual void giveBirth(Vector2D position) override;
-	virtual void action() override;
+	virtual Fox* giveBirth(Vector2D position) override;
+	virtual bool checkIfDestinationLegal(Vector2D possibleDestination) override;
 };

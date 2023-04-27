@@ -1,5 +1,7 @@
 #pragma once
 #include "Organism.h"
+#include "Vector2D.h"
+#include "GameManager.h"
 
 #include <iostream>
 #include <algorithm> 
@@ -8,38 +10,53 @@
 using std::vector;
 using std::string;
 
-struct Vector2D;
+class Vector2D;
 class Organism;
+class GameManager;
 
 class World {
+	friend class GameManager;
+
 private:
+	bool humanAlive;
 	int height, width, roundCount;
 	vector<Organism*> organisms;
-	vector<Organism*> toAdd;
 	vector<string> history;
 
 public:
 	World();
 	~World();
 
+	void shuffle();
+
+
+
 	int getHeight();
 	void setHeight(int h);
 	
 	int getWidth();
-	void setWidht(int w);
+	void setWidth(int w);
 
 	void nextRound();
 
 	void addOrganism(Organism* organism);
-	void addOrganismsToAdd();
+
 	void clearCorpses();
 
 	void manageOrganisms();
 	Organism* findOrganismAtPosition(Vector2D position);
-	Organism* findFutureOrganismAtPosition(Vector2D position);
+	Organism* findOrganismAroundPosition(Vector2D position);
+	Organism* findOrganismAtPosition(Organism* checkOrganism);
+	
+	bool isPointWithinBounds(Vector2D point);
 	Vector2D findEmptyPlaceAround(Vector2D position);
 
-
+	void addEvent(string message);
 	void printState();
+
+	bool isHumanAlive();
+	void killHuman();
+	void summonHuman();
+	Organism* getHuman();
 
 };

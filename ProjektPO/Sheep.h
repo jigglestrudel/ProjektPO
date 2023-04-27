@@ -5,5 +5,5 @@
 class Sheep : public Animal {
 public:
 	Sheep(Vector2D position);
-	virtual void giveBirth(Vector2D position) override;
+	virtual Sheep* giveBirth(Vector2D position) override;
 };

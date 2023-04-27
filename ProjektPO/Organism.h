@@ -1,41 +1,41 @@
 #pragma once
 #include "World.h"
+#include "Vector2D.h"
 
 #include <iostream>
 #include <cstdlib>
 
 class World;
 
-typedef struct Vector2D
+namespace Types
 {
-	int x, y;
+	enum classID {
+			WOLF,
+			SHEEP,
+			FOX,
+			TORTOISE,
+			ANTILOPE,
+			CYBERSHEEP,
 
-	bool operator==(Vector2D right);
-}Vector2D;
+			GRASS,
+			DANDELION,
+			GUARANA,
+			NIGHTSHADE,
+			HOGWEED,
 
-std::ostream& operator<<(std::ostream& os, Vector2D vector);
+			HUMAN,
+		};
 
-enum classID {
-	WOLF,
-	SHEEP,
-	FOX,
-	TORTOISE,
-	ANTILOPE,
-	CYBERSHEEP,
+	std::string getString(classID id);
 
-	CLASSIDBORDER,
+}
 
-	GRASS,
-	DANDELION,
-	GUARANA,
-	NIGHTSHADE,
-	HOGWEED,
-};
 
 class Organism {
 
 private:
-	classID id;
+
+	Types::classID id;
 	int strength;
 	int innitiative;
 
@@ -47,14 +47,12 @@ private:
 
 public:
 	Organism();
-	Organism(classID cl, int s, int i, Vector2D pos, World* wr);
-
 	~Organism();
 
 	void bringToLife();
 
-	classID getID();
-	void setID(classID id);
+	Types::classID getID();
+	void setID(Types::classID id);
 
 	int getStrength();
 	void setStrength(int strength);
@@ -66,7 +64,7 @@ public:
 	virtual void makeOlder();
 
 	bool isAlive();
-	void die();
+	virtual void die();
 
 	Vector2D getPosition();
 	void setPosition(Vector2D position);
@@ -74,7 +72,10 @@ public:
 	World* getWorld();
 	void setWorld(World* worldReference);
 
+	std::string toString();
+
 	virtual void action() = 0;
 	virtual void collision(Organism* colliding) = 0;
 
+	friend std::ostream& operator<<(std::ostream& os, Organism organism);
 };

@@ -1,8 +1,9 @@
 #include "Organism.h"
 
+
 Organism::Organism()
 {
-	id = classID(0);
+	id = Types::classID(0);
 
 	strength = 0;
 	innitiative = 0;
@@ -14,37 +15,23 @@ Organism::Organism()
 	worldReference = nullptr;
 }
 
-Organism::Organism(classID cl, int s, int i, Vector2D pos, World* wr)
-{
-	id = cl;
-	strength = s;
-	innitiative = i;
-	
-	age = 0;
-	alive = true;
-
-	position = pos;
-	worldReference = wr;
-}
 
 void Organism::bringToLife()
 {
-
 	age = 0;
 	alive = true;
 }
 
 Organism::~Organism()
 {
-	std::cout << "organism " << this << " deleted\n";
 }
 
-classID Organism::getID()
+Types::classID Organism::getID()
 {
 	return id;
 }
 
-void Organism::setID(classID id)
+void Organism::setID(Types::classID id)
 {
 	this->id = id;
 }
@@ -96,10 +83,7 @@ Vector2D Organism::getPosition()
 
 void Organism::setPosition(Vector2D position)
 {
-	//std::cout << this << " " <<  this->position;
 	this->position = position;
-	//std::cout << this->position << "\n";
-
 }
 
 World* Organism::getWorld()
@@ -112,13 +96,58 @@ void Organism::setWorld(World* worldReference)
 	this->worldReference = worldReference;
 }
 
-bool Vector2D::operator==(Vector2D right)
+
+ std::string Organism::toString()
 {
-	return this->x == right.x && this->y == right.y;
+	std::string str;
+	str += Types::getString(this->getID()); 
+	str += std::string(" at ");
+	str += this->getPosition().toString();
+	return str;
 }
 
-std::ostream& operator<<(std::ostream& os, Vector2D vector)
-{
-	os << "(" << vector.x << ", " << vector.y << ")";
-	return os;
-}
+ std::string Types::getString(Types::classID id)
+ {
+	 std::string str;
+	 switch (id)
+	 {
+	 case WOLF:
+		 str = "Wolf";
+		 break;
+	 case SHEEP:
+		 str = "Sheep";
+		 break;
+	 case FOX:
+		 str = "Fox";
+		 break;
+	 case TORTOISE:
+		 str = "Tortoise";
+		 break;
+	 case ANTILOPE:
+		 str = "Antilope";
+		 break;
+	 case CYBERSHEEP:
+		 str = "Cybersheep";
+		 break;
+	 case GRASS:
+		 str = "Grass";
+		 break;
+	 case DANDELION:
+		 str = "Dandelion";
+		 break;
+	 case GUARANA:
+		 str = "Guarana";
+		 break;
+	 case NIGHTSHADE:
+		 str = "Deadly nightshade";
+		 break;
+	 case HOGWEED:
+		 str = "Heracleum sosnowskyi";
+		 break;
+	 default:
+		 str = "UNKNOWN TYPE";
+		 break;
+	 }
+
+	 return str;
+ }

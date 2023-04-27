@@ -7,29 +7,49 @@
 #include "Animal.h"
 #include "Wolf.h"
 #include "Sheep.h"
+#include "Fox.h"
+#include "Tortoise.h"
+#include "Antilope.h"
+#include "Plant.h"
+#include "Grass.h"
+#include "Dandelion.h"
 
 int main()
 {
 	World* earth = new World;
-	earth->setHeight(10);
-	earth->setWidht(10);
-	Wolf* wilk1 = new Wolf({ 0, 0 });
-	//Wolf* wilk2 = new Wolf({ 1, 0 });
-	//Wolf* wilk3 = new Wolf({ 0, 1 });
+	earth->setHeight(2);
+	earth->setWidth(2);
+	/*Wolf* wilk1 = new Wolf({ 0, 0 });
+	Wolf* wilk2 = new Wolf({ 1, 0 });
 	Sheep* owca1 = new Sheep({ 0, 2 });
 	Sheep* owca2 = new Sheep({ 1, 2 });
-	Sheep* owca3 = new Sheep({ 2, 2 });
-	Sheep* owca4 = new Sheep({ 3, 2 });
-	Sheep* owca5 = new Sheep({ 4, 2 });
+	Sheep* owca3 = new Sheep({ 2, 1 });*/
+	Sheep* owca4 = new Sheep({ 1, 1 });
+	/*Fox* lis1 = new Fox({ 3, 1 });
+	Fox* lis2 = new Fox({ 2, 2 });
+	Tortoise* zolw1 = new Tortoise({ 3, 3 });
+	Tortoise* zolw2 = new Tortoise({ 3, 5 });
+	Antilope* antylopa1 = new Antilope({ 4, 4 });
+	Antilope* antylopa2 = new Antilope({ 4, 5 });*/
 
-	earth->addOrganism(wilk1);
-	//earth->addOrganism(wilk2);
-	//earth->addOrganism(wilk3);
+	//Grass* trawa1 = new Grass({ 0, 0 });
+	Dandelion* mlecz1 = new Dandelion({ 0, 0 });
+	
+
+	/*earth->addOrganism(wilk1);
+	earth->addOrganism(wilk2);
 	earth->addOrganism(owca1);
 	earth->addOrganism(owca2);
-	earth->addOrganism(owca3);
+	earth->addOrganism(owca3);*/
 	earth->addOrganism(owca4);
-	earth->addOrganism(owca5);
+	//earth->addOrganism(lis1);
+	//earth->addOrganism(lis2);
+	//earth->addOrganism(zolw1);
+	//earth->addOrganism(zolw2);
+	//earth->addOrganism(antylopa1);
+	//earth->addOrganism(antylopa2);
+	//earth->addOrganism(trawa1);
+	earth->addOrganism(mlecz1);
 
 	while (true)
 	{
